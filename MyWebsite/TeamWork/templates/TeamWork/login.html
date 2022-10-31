@@ -1,0 +1,15 @@
+{% load static %}
+<!-- CSS CUSTOM -->
+<link rel="stylesheet" href="{% static "css/login.css" %}">
+{% block title %}<h1>Welcome to My TeamWork <h1>{% endblock %}
+{% block content %}
+ <h2>Age</h2>
+ <p>Please,use the below form to Login to <h3>Teamwork</h3></p>
+ <form method="post">
+ <table>  
+ {{ form.as_table }}
+ </table>
+ {% csrf_token %}
+ <p><input type="submit" value="Login"></p>
+ </form>
+{% endblock %}

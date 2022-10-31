@@ -1,0 +1,12 @@
+
+{% load static %}
+<!-- CSS CUSTOM -->
+<link rel="stylesheet" href="{% static "css/login.css" %}">
+{% block title %}<h2>Hi Welcome to my TeamWork Web Application</h2>{% endblock %}
+{% block content %}
+ <p>Please use the below option to Login to your existing Teamwork account</p>
+ <a href="{% url "login" %}"><h3><input type="submit" value="Sign_in"></h3></a>
+ <p>If you do not have a TeamWork account kindly use the below option to register for new 
+    account</p>
+ <a href="{% url "Register" %}"><h3><input type="submit" value="Sign_up"></h3></a>
+{% endblock %}

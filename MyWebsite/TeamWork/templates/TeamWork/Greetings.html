@@ -1,0 +1,8 @@
+{% load static %}
+<!-- CSS CUSTOM -->
+<link rel="stylesheet" href="{% static "css/login.css" %}">
+{% block title %}<h2>Hi you have successfully Logged into Teamwork</h2>{% endblock %}
+{% block content %}
+<p>Please use the below link to create your Todo for today</p>
+ <a href="{% url "login" %}"><h3>Link</h3></a></p>
+{% endblock %}
