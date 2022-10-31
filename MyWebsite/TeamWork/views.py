@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import LoginForm, UserRegistrationForm
+from .forms import LoginForm, UserRegistrationForm, Todays_PlanForm
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -55,3 +55,10 @@ def register(request):
     else:
         user_form = UserRegistrationForm()
     return render(request, "TeamWork/register.html", {"user_form": user_form})
+
+
+def Todays_Plan(request):
+    Todays_plan_form = Todays_PlanForm()
+    return render(
+        request, "TeamWork/Today_Plan.html", {"Todays_plan_form": Todays_plan_form}
+    )

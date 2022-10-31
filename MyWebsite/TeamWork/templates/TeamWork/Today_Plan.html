@@ -1,0 +1,13 @@
+{% load static %}
+<!-- CSS CUSTOM -->
+<link rel="stylesheet" href="{% static "css/base.css" %}">
+{% block title %}<h1>Create your todo plan for today here<h1>{% endblock %}
+{% block content %}
+ <form method="post">
+ <table>  
+ {{Todays_plan_form.as_table }}
+ </table>
+ {% csrf_token %}
+ <p><input type="submit" value="Submit"></p>
+ </form>
+{% endblock %}

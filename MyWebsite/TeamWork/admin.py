@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Profile
+from .models import Today_Todo
 
 
 @admin.register(Profile)
@@ -8,3 +9,14 @@ class ProfileAdmin(admin.ModelAdmin):
         "user",
         "date_of_birth",
     ]
+
+
+@admin.register(Today_Todo)
+class Today_TodoAdmin(admin.ModelAdmin):
+    list_display = [
+        "title",
+        "Date_Created",
+    ]
+
+    class meta:
+        ordering = "-Date_Created"

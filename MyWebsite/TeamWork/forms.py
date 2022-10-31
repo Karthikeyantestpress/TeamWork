@@ -7,10 +7,15 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
 
 
-class UserRegistrationForm(forms.ModelForm):
+class UserRegistrationForm(forms.Form):
     password = forms.CharField(label="Password", widget=forms.PasswordInput)
     password2 = forms.CharField(label="Repeat password", widget=forms.PasswordInput)
 
     class Meta:
         model = User
         fields = ("username", "first_name", "email")
+
+
+class Todays_PlanForm(forms.Form):
+    tittle = forms.CharField()
+    description = forms.CharField()
