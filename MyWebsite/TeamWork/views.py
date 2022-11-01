@@ -3,7 +3,8 @@ from .forms import LoginForm, UserRegistrationForm, Todays_PlanForm
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from .models import Profile
+from .models import Profile, Today_Todo
+
 
 # Create your views here.
 
@@ -58,7 +59,6 @@ def register(request):
 
 
 def Todays_Plan(request):
-    Todays_plan_form = Todays_PlanForm()
-    return render(
-        request, "TeamWork/Today_Plan.html", {"Todays_plan_form": Todays_plan_form}
-    )
+    Todays_plan_ = Today_Todo.objects.all()
+
+    return render(request, "TeamWork/Today_Plan.html", {"Todo_list": Todays_plan_})
