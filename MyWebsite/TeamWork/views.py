@@ -62,3 +62,9 @@ def Todays_Plan(request):
     Todays_plan_ = Today_Todo.objects.all()
 
     return render(request, "TeamWork/Today_Plan.html", {"Todo_list": Todays_plan_})
+
+
+def Today_Plan_User_Input(request):
+    form = Todays_PlanForm()
+
+    return render(request, "TeamWork/Add_Todays_Plan.html", {"form": form})

@@ -3,13 +3,7 @@
 <link rel="stylesheet" href="{% static "css/base.css" %}">
 {% block title %}<h1>Create your todo plan for today here<h1>{% endblock %}
 {% block content %}
- {% comment %} <form method="post">
- <table>  
- {{Todays_plan_form.as_table }}
- </table>
- {% csrf_token %}
- <p><input type="submit" value="Submit"></p>
- </form> {% endcomment %}
+ 
  {% if Todo_list %}
 
  {% for T in Todo_list %}
@@ -23,4 +17,6 @@
  </table>
  {% endfor %}
  {% endif %}
+ <p>You can Add new Todos for today with the below Add option</p>
+ <a href="{% url "Today_Plan_User_Input" %}"><h3><input type="submit" value="Add"></h3></a>
 {% endblock %}
