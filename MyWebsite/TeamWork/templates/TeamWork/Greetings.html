@@ -42,11 +42,14 @@
    
 	<div class="sidenav">
         <a href="{% url "Todays_Plan" %}"><h3>Plans</h3></a></p>
+        <a href="{% url "logout" %}">Loggout</a>
 	</div>
 
    <div class="main">
-    <p>You can check and update your plans by selecting the Plans tab in the left</p>
+    <p>You can check and update your plans by selecting the Plans tab </p>
     </div>
+
+    
  
 	{% block content %}
     

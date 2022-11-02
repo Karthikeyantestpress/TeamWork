@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .models import Profile, Today_Todo
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -58,8 +59,9 @@ def register(request):
     return render(request, "TeamWork/register.html", {"user_form": user_form})
 
 
+@login_required()
 def Todays_Plan(request):
-    Todays_plan_ = Today_Todo.objects.all()
+    Todays_plan_ = Today_Todo.objects.filter(Created_by=request.user)
 
     return render(request, "TeamWork/Today_Plan.html", {"Todo_list": Todays_plan_})
 

@@ -16,6 +16,7 @@ class Today_TodoAdmin(admin.ModelAdmin):
     list_display = [
         "title",
         "Date_Created",
+        "Created_by",
     ]
 
     class meta:

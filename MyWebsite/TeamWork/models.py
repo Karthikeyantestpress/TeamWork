@@ -9,15 +9,18 @@ class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date_of_birth = models.DateField(blank=True, null=True)
 
-    def __str__(self):
+    def __Unicode__(self):
         return self.user
 
 
 class Today_Todo(models.Model):
-
+    Created_by = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1
+    )
+    # Created_by = models.ForeignKey(Profile, on_delete=models.CASCADE, default =1)
     title = models.CharField(max_length=200)
     Date_Created = models.DateTimeField(default=timezone.now)
     description = models.TextField(blank=True)
 
-    def __str__(self):
-        return self.title
+    def __Unicode__(self):
+        return self.Created_by

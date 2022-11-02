@@ -48,9 +48,11 @@
 	</div>
 
    <div class="main">
-      <head><b>Welcome to TeamWork</b></head>
+      <head><b>Welcome to TeamWork</b></head><br>
+      {% load static %} <img src=" {% static "TeamWork/Image/download.jpg" %}" alt="home"/>
       <p>Please selct the Sign in option to Login to your Teamwork account</p>
       <p>If you do not have an account Kinly select the Sign_up option to register</p>   
+     
     </div>
  
 	{% block content %}

@@ -1,6 +1,7 @@
-from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 urlpatterns = [
     path(
@@ -14,3 +15,4 @@ urlpatterns = [
     path("Today_plan/", views.Todays_Plan, name="Todays_Plan"),
     path("Add_Todays_Plan/", views.Today_Plan_User_Input, name="Today_Plan_User_Input"),
 ]
+urlpatterns += staticfiles_urlpatterns()
