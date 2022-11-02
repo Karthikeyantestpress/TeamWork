@@ -1,4 +1,6 @@
-{% extends "base.html" %}
+{% load static %}
+<!-- CSS CUSTOM -->
+<link rel="stylesheet" href="{% static "css/base.css" %}">
 {% block title %}Welcome{% endblock %}
 {% block content %}
 <h1>Welcome {{ new_user.first_name }}!</h1>

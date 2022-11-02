@@ -2,11 +2,60 @@
 {% load static %}
 <!-- CSS CUSTOM -->
 <link rel="stylesheet" href="{% static "css/base.css" %}">
-{% block title %}<h2>Hi Welcome to my TeamWork Web Application</h2>{% endblock %}
-{% block content %}
- <p>Please use the below option to Login to your existing Teamwork account</p>
- <a href="{% url "login" %}"><h3><input type="submit" value="Sign_in"></h3></a>
- <p>If you do not have a TeamWork account kindly use the below option to register for new 
-    account</p>
- <a href="{% url "Register" %}"><h3><input type="submit" value="Sign_up"></h3></a>
-{% endblock %}
+
+
+<html>
+<head>
+	<style type="text/css">
+		.sidenav {
+			height:100%;
+			width:160px;
+			position: fixed;
+			z-index:1;
+			top:0;
+			left:0;
+			background-color:#111;
+			overflow-x: :hidden;
+			padding-top:20px;
+		}
+ 
+		.sidenav a {
+			padding:6px 8px 6px 16px;
+			text-decoration: none;
+			font-size:25px;
+			color: #818181;
+			display:block;
+		}
+ 
+		.sidenav a:hover{
+			color:#f1f1f1;
+		}	
+ 
+		.main{
+			margin-left:160px;
+			padding: 0px 10px;
+		}
+ 
+	</style>
+	<title>{% block title %}Team Work{% endblock %}</title>
+</head>
+ 
+<body>
+   
+	<div class="sidenav">
+      <a href="{% url "login" %}">Sign_in</h3></a></p>
+		<a href="{% url "Register" %}">Sign Up</h3></a>
+	</div>
+
+   <div class="main">
+      <head><b>Welcome to TeamWork</b></head>
+      <p>Please selct the Sign in option to Login to your Teamwork account</p>
+      <p>If you do not have an account Kinly select the Sign_up option to register</p>   
+    </div>
+ 
+	{% block content %}
+   
+	{% endblock %}
+ 
+</body>
+</html>

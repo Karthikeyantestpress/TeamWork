@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -7,7 +7,8 @@ urlpatterns = [
         "",
         views.Greetings,
     ),
-    path("login/", views.user_login, name="login"),
+    path("", include("django.contrib.auth.urls")),
+    # path("login/", views.user_login, name="login"),
     path("login/Greetings", views.Welcome_Page, name="Welcome"),
     path("register/", views.register, name="Register"),
     path("Today_plan/", views.Todays_Plan, name="Todays_Plan"),

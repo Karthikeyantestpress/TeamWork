@@ -1,7 +1,7 @@
 {% load static %}
 <!-- CSS CUSTOM -->
 <link rel="stylesheet" href="{% static "css/base.css" %}">
-{% block title %}<h1>Welcome to My TeamWork <h1>{% endblock %}
+{% block title %}{% endblock %}
 {% block content %}
  <h2>Todays todo</h2>
  <p>Please,use the below form to Add you plans for the day <h3>Teamwork</h3></p>
@@ -10,6 +10,6 @@
  {{ form.as_table }}
  </table>
  {% csrf_token %}
- <p><input type="submit" value="Update"></p>
+ <a href="{% url "Today_Plan_User_Input" %}"><h3><input type="submit" value="Update"></h3></a>
  </form>
 {% endblock %}

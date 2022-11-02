@@ -1,0 +1,10 @@
+{% load static %}
+<!-- CSS CUSTOM -->
+<link rel="stylesheet" href="{% static "css/base.css" %}">
+{% block title %}{% endblock %}
+{% block content %}
+<h1>Success</h1>
+<p>your todo has been successfully updated </p>
+<p>Please select the below link to move to your upated Todo lists</p>
+<a href="{% url "Todays_Plan" %}"><h3>Todays_Plan</h3></a></p>
+{% endblock %}

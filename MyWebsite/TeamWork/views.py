@@ -64,12 +64,6 @@ def Todays_Plan(request):
     return render(request, "TeamWork/Today_Plan.html", {"Todo_list": Todays_plan_})
 
 
-# def Today_Plan_User_Input(request):
-#     form = Todays_PlanForm()
-
-#     return render(request, "TeamWork/Add_Todays_Plan.html", {"form": form})
-
-
 def Today_Plan_User_Input(request):
     if request.method == "POST":
         form = Todays_PlanForm(request.POST)
@@ -77,7 +71,7 @@ def Today_Plan_User_Input(request):
             # Create a new user object but avoid saving it yet
             cd = form.cleaned_data
             new_todo = form
-            # Set the chosen password
+            # Set the chosen title and description
             new_todo.title = cd["title"]
             new_todo.description = cd["description"]
             # Save the User object
@@ -85,7 +79,10 @@ def Today_Plan_User_Input(request):
             Today_Todo.objects.create(
                 title=new_todo.title, description=new_todo.description
             )
-            return render(request, "TeamWork/Today_Plan.html", {"Todo_list": new_todo})
+
+            return render(
+                request, "TeamWork/Updated_Todo.html", {"Todo_list": new_todo}
+            )
     else:
         form = Todays_PlanForm()
     return render(request, "TeamWork/Add_Todays_Plan.html", {"form": form})

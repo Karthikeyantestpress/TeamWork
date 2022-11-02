@@ -18,4 +18,4 @@ class UserRegistrationForm(forms.ModelForm):
 
 class Todays_PlanForm(forms.Form):
     title = forms.CharField()
-    description = forms.CharField()
+    description = forms.CharField(widget=forms.Textarea)
