@@ -1,8 +1,56 @@
 {% load static %}
 <!-- CSS CUSTOM -->
 <link rel="stylesheet" href="{% static "css/base.css" %}">
-{% block title %}<h2>Hi you have successfully Logged into Teamwork</h2>{% endblock %}
-{% block content %}
-<p>Please use the below link to View your Todo for today</p>
- <a href="{% url "Todays_Plan" %}"><h3>Todays_Plan</h3></a></p>
-{% endblock %}
+
+
+<html>
+<head>
+	<style type="text/css">
+		.sidenav {
+			height:100%;
+			width:160px;
+			position: fixed;
+			z-index:1;
+			top:0;
+			left:0;
+			background-color:#111;
+			overflow-x: :hidden;
+			padding-top:20px;
+		}
+ 
+		.sidenav a {
+			padding:6px 8px 6px 16px;
+			text-decoration: none;
+			font-size:25px;
+			color: #818181;
+			display:block;
+		}
+ 
+		.sidenav a:hover{
+			color:#f1f1f1;
+		}	
+ 
+		.main{
+			margin-left:160px;
+			padding: 0px 10px;
+		}
+ 
+	</style>
+	<title>{% block title %}Team Work{% endblock %}</title>
+</head>
+<body>
+   
+	<div class="sidenav">
+        <a href="{% url "Todays_Plan" %}"><h3>Plans</h3></a></p>
+	</div>
+
+   <div class="main">
+    <p>You can check and update your plans by selecting the Plans tab in the left</p>
+    </div>
+ 
+	{% block content %}
+    
+	{% endblock %}
+ 
+</body>
+</html>

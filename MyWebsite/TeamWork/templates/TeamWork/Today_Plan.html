@@ -1,24 +1,21 @@
 {% load static %}
 <!-- CSS CUSTOM -->
 <link rel="stylesheet" href="{% static "css/base.css" %}">
-{% block title %}<h1>Create your todo plan for today here<h1>{% endblock %}
+{% block title %}<h3>My Todo List</h3>{% endblock %}
 {% block content %}
  
  {% if Todo_list %}
 
  {% for T in Todo_list %}
- <table>
-    <tr>
- <td><h2>{{ T.title }}</h2></td>
- </tr>
- <td>{{ T.Date_Created }}</Td>
- <td>{{ T.description  }}</td>
- 
- </table>
+
+   <div > <b>Title:</b> {{T.title }}   </div>
+   <div > <b>Date Created:</b> :{{ T.Date_Created }}   </div>
+   <div > <b>Description:</b> :{{ T.description  }}  </div>
+   <div><br></div>
  {% endfor %}
  {% else %}
- <p>No athletes.</p>
+ <p>You have not added a Todo's yet </p>
+ 
  {% endif %}
- <p>You can Add new Todos for today with the below Add option</p>
- <a href="{% url "Today_Plan_User_Input" %}"><h3><input type="submit" value="Add"></h3></a>
+ <a href="{% url "Today_Plan_User_Input" %}"><h3><input type="submit" value="Add New"></h3></a>
 {% endblock %}
