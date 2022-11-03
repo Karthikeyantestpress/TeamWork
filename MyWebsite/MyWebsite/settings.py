@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = "django-insecure-jou%8u40_4i_!=_zdax4_x8o51crwt+ot387369m_++u^*u+#e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["mysite.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "social_django",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
@@ -117,6 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -126,3 +130,19 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_REDIRECT_URL = "Welcome"
 LOGIN_URL = "login"
 LOGOUT_URL = "logout"
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "social_core.backends.facebook.FacebookOAuth2",
+    "social_core.backends.google.GoogleOAuth2",
+]
+
+SOCIAL_AUTH_FACEBOOK_KEY = "3477082109181673"  # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = "314fa4ae9e306617ee0df8d1b4f9a39a"  # Facebook App Secret
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "194108673819-dft8s0hu2mkev3mutcnptqep6uaf7fi4.apps.googleusercontent.com"  # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = (
+    "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"  # Google Consumer Secret
+)

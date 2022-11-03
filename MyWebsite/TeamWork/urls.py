@@ -14,5 +14,6 @@ urlpatterns = [
     path("register/", views.register, name="Register"),
     path("Today_plan/", views.Todays_Plan, name="Todays_Plan"),
     path("Add_Todays_Plan/", views.Today_Plan_User_Input, name="Today_Plan_User_Input"),
+    path("social-auth/", include("social_django.urls", namespace="social")),
 ]
 urlpatterns += staticfiles_urlpatterns()
